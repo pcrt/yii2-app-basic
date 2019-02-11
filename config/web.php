@@ -43,6 +43,18 @@ $config = [
             ],
         ],
         'db' => $db,
+        // Uncomment to enable Multilanguage support
+        /*'i18n' => [
+            'translations' => [
+                'app*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    //'basePath' => '@app/messages',
+                    'fileMap' => [
+                        'app' => 'main.php'
+                    ],
+                ],
+            ],
+        ],*/
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,
