@@ -1,0 +1,112 @@
+.wksp-title {
+    font-size: 11px;
+    font-weight: 700;
+    color:#828282;
+    margin: 0;
+
+    span {
+        color: $primary;
+    }
+}
+
+
+.navbar {
+    margin-bottom: 40px;
+}
+
+#content {
+    /*padding: 0 20px 20px 20px;*/
+    min-height: 100vh;
+    transition: all 0.3s;
+    width: 100%;
+}
+
+.pcrt-user a.userbtn {
+    color: #2A2B33;
+	font-size: 17px;
+	font-weight: 700;
+    line-height: 20px;
+    text-align: right;
+    
+    &:hover {
+        text-decoration: none !important;
+    }
+
+    > * {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    span {
+        color: #828282;	
+        font-size: 11px;	
+        letter-spacing: 2.25px;	
+        line-height: 13px;
+    }
+}
+
+.pcrt-head, .pcrt-filter {
+    padding: 20px;
+    border-bottom: 1px solid darken($pcrt-header-bar, 6);
+    border-top: 1px solid lighten($pcrt-header-bar, 3);
+    background: $pcrt-header-bar;
+}
+
+.pcrt-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 !important;
+    border-bottom: 1px solid lighten($pcrt-header-bar, 3);
+}
+
+.pcrt-row-header{
+    height: 90px;
+    //border-bottom: 1px solid darken($pcrt-header, 12);
+    box-shadow: $pcrt-head-shadow;
+    background: $pcrt-header;
+    z-index: 9999;
+}
+
+h1.pcrt-title {
+	font-weight: 700;
+	font-size: 26px;
+    padding: 0;
+    color: color-yiq($pcrt-header-bar);
+}
+
+.pcrt-wrapper {
+    min-height: 300px;
+    padding: 0 20px 20px 20px;
+}
+
+input.b2cn-input, select.b2cn-input{
+	height: 38px;
+	border:1px solid #d1d5dd;
+}
+
+input.b2cn-input::placeholder, 
+select.b2cn-input::placeholder,
+.bootstrap-select>.dropdown-toggle.bs-placeholder, 
+.bootstrap-select>.dropdown-toggle.bs-placeholder:active, 
+.bootstrap-select>.dropdown-toggle.bs-placeholder:focus, 
+.bootstrap-select>.dropdown-toggle.bs-placeholder:hover {
+	font-size: 12px;
+    color: #828282;
+    font-weight: 400;
+}
+
+.b2cn-form label{
+	text-transform: uppercase;
+    font-weight: 700;
+    font-size: 12px;
+    margin-bottom: .2rem;
+}
+
+.b2cn-form .input-group .form-control{
+    margin-bottom: 0;
+}
+
+.pcrt-toogle-side {
+    color: color-yiq($pcrt-header);
+}

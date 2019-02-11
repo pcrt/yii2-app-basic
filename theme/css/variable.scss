@@ -1,0 +1,46 @@
+// Select2 Bootstrap 4 Variables
+// lookig at ../node_modules/select2-bootstrap4-theme/src/select2-bootstrap4.scss
+
+// Boostrap 4.x Variables
+// looking at https://getbootstrap.com/docs/4.0/getting-started/theming/
+
+//------ PCRT
+// Main
+$pcrt-bg: #f3f7fc;
+$pcrt-primary: #111;
+// Sidebar
+$navbar-open: 230px;
+$navbar-close: 100px;
+$pcrt-sidebar-bg: #2a2b33;
+$pcrt-sidebar-text: #a8a8a8;
+$pcrt-sidebar-text-active: #fff;
+// Header
+$pcrt-header-bar: #DFE5EC;
+$pcrt-header: #fff;
+// Shadow
+$pcrt-head-shadow: 3px 3px 10px rgba(0,0,0,0.08), -3px 3px 10px rgba(0,0,0,0.2);
+$pcrt-input-height: 38px;
+$pcrt-input-border-width: 0;
+
+$pcrt-font-size: 0.8rem;
+
+
+//------ BOOTSTRAP
+$primary: $pcrt-primary;
+$font-family-sans-serif: 'Roboto', sans-serif;
+$body-color: $pcrt-primary;
+$body-bg: $pcrt-bg;
+$font-size-base: 0.9rem;
+
+$btn-font-size: 0.75rem;
+$btn-border-width: 0;
+$btn-box-shadow: none !important;
+$btn-focus-box-shadow: none !important;
+$btn-active-box-shadow: none !important;
+$input-focus-box-shadow: none !important;
+$input-border-width: $pcrt-input-border-width;
+//$input-border-color: red;
+//$input-line-height: 38px;
+$input-height: $pcrt-input-height;
+
+$modal-content-bg: $pcrt-bg;

@@ -1,0 +1,120 @@
+.wrapper {
+  display: flex;
+  align-items: stretch;
+}
+
+.action-column {
+  width: 38px;
+}
+
+.select2 {
+  width: 100% !important;
+  //max-width: 450px !important;
+}
+
+.help-block {
+  position: absolute;
+  font-size: 10px;
+
+  &.help-block-error {
+    color: red;
+  }
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  i {
+    font-size: 9px;
+    margin-right: 5px;
+  }
+  &.navbar-btn i {
+    font-size: 16px;
+  }
+}
+
+.head-buttons {
+  display: flex;
+  justify-content: flex-end;
+  .btn, .dropdown {
+    margin-left: 5px;
+  }
+}
+
+form {
+  width: 100%;
+  max-width: 760px;
+}
+
+.select2-selection {
+  height: $pcrt-input-height !important;
+  display: flex !important;
+  align-items: center !important;
+  border-width: $pcrt-input-border-width !important;
+
+  .select2-selection__arrow {
+    height: $pcrt-input-height !important;
+  }
+}
+
+h1 {
+  margin: 0;
+}
+
+.table {
+  th, td {
+    font-size: $pcrt-font-size;
+  }
+}
+
+.list-group {
+  margin-bottom: 10px;
+  .list-group-item {
+    input {
+      margin-right: 5px;
+    }
+    label {
+      margin: 0;
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.sp-replacer {
+  margin-top: 5px;
+  height: 15px;
+  padding: 2px;
+  .sp-preview {
+    height: 9px;
+  }
+  .sp-dd {
+    height: 10px;
+    padding: 0;
+    margin-top: -3px;
+  }
+}
+.sp-container {
+  .sp-cancel {
+    display: none;
+  }
+}
+
+.flatpickr-input {
+  height: $pcrt-input-height !important;
+  border-width: $pcrt-input-border-width !important;
+  padding: 0 8px;
+  width: 100%;
+}
+.flatpickr-day.selected, .flatpickr-day.selected:hover {
+  background-color: $pcrt-primary;
+  border-color: $pcrt-primary;
+}

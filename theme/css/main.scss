@@ -1,0 +1,17 @@
+@import 'variable.scss';
+
+// Original Bootstrap CSS
+@import "../../node_modules/bootstrap/scss/bootstrap"; 
+
+// Custom CSS to implement personal override
+@import 'custom.scss';
+
+// Components css
+@import 'sidebar.scss';
+@import 'header.scss';
+
+// Import Fonts
+@import "../../node_modules/roboto-fontface/css/roboto/roboto-fontface.css";
+@import "../../node_modules/@fortawesome/fontawesome-free/css/all.min.css";
+
+@import '../../node_modules/spectrum-colorpicker/spectrum.css';
