@@ -9,10 +9,13 @@ import merge from 'merge2';
 import request from 'request';
 import buffer from 'gulp-buffer';
 import favicons from 'gulp-favicons';
+import { extrajs } from './theme/src/import.js';
 
 import del from 'del';
 
 var env = require('gulp-env');
+var log = require('fancy-log');
+
 
 env({
   file: '.env',
@@ -25,10 +28,6 @@ const paths = {
         src: 'theme/css/main.scss',
         dest: 'web/dist/'
     },
-    select2 : {
-        src: 'theme/css/select2.scss',
-        dest: 'widgets/select2/assets/css/'
-    },
   },
   scripts: {
     main:{
@@ -36,16 +35,10 @@ const paths = {
         'node_modules/jquery/dist/jquery.js',
         'node_modules/bootstrap/dist/js/bootstrap.js',
         'node_modules/infinite-scroll/dist/infinite-scroll.pkgd.js',
-        'node_modules/spectrum-colorpicker/spectrum.js',
-        'theme/src/*.js'
+        //'theme/src/*.js'
       ],
       dest: 'web/dist/'
-    },
-    select2:{
-      src: 'node_modules/select2/dist/js/**/*',
-      dest: 'widgets/select2/assets/js/'
     }
-
   },
   watchCSS: {
     src: 'theme/css/*.scss'
@@ -74,55 +67,17 @@ export function cssmain() {
     .pipe(gulp.dest(paths.styles.main.dest));
 }
 
-export function cssselect2() {
-  return gulp.src(paths.styles.select2.src)
-    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-    .pipe(cleanCSS())
-    .pipe(concat('main.min.css'))
-    // pass in options to the stream
-    .pipe(rename({
-      basename: 'select2',
-      suffix: '.min'
-    }))
-    .pipe(gulp.dest(paths.styles.select2.dest))
-    .pipe(sass({outputStyle: 'expanded'}))
-    .pipe(rename({
-      basename: 'select2',
-      suffix: ''
-    }))
-    .pipe(gulp.dest(paths.styles.select2.dest))
-    ;
-}
-
 export function scripts() {
-
-  return gulp.src(paths.scripts.main.src, { sourcemaps: true })
+  //log(paths.scripts.main.src.concat(extrajs()));
+  return gulp.src(paths.scripts.main.src.concat(extrajs()), { sourcemaps: true })
   .pipe(buffer())
   .pipe(concat('main.min.js'))
   .pipe(uglify())
   .pipe(gulp.dest(paths.scripts.main.dest));
 
-
 }
 
-export function cloneSelect2js() {
-
-  return gulp.src(paths.scripts.select2.src).pipe(gulp.dest(paths.scripts.select2.dest));
-
-}
-
-export function select2js() {
-
-  return gulp.src(paths.scripts.src, { sourcemaps: true })
-  .pipe(buffer())
-  .pipe(concat('main.min.js'))
-  .pipe(uglify())
-  .pipe(gulp.dest(paths.scripts.dest));
-
-}
-
-
- /*
+  /*
   * You could even use `export as` to rename exported tasks
   */
 export function watch() {
@@ -172,7 +127,7 @@ export function moveLogo() {
 
 
 
-const build = gulp.series(clean, gulp.parallel(cssmain, cssselect2, scripts, cloneSelect2js, genFavicon, moveLogo), moveHtmlFavicon, cleanHtmlFavicon);
+const build = gulp.series(clean, gulp.parallel(cssmain, scripts, genFavicon, moveLogo), moveHtmlFavicon, cleanHtmlFavicon);
 /*
  * Export a default task
  */

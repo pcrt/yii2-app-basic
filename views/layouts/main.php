@@ -1,5 +1,6 @@
 <?php
 use app\assets\AppAsset;
+
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -8,7 +9,7 @@ AppAsset::register($this);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php $this->registerCsrfMetaTags() ?>
-    <title><?= $this->calcTitle($this->title) ?></title>
+    <title></title>
     <style><?= $this->render('glyphicon.css') ?></style>
     <?php $this->head() ?>
     <!-- Include favicon generated file -->

@@ -7,13 +7,15 @@
 //------ PCRT
 // Main
 $pcrt-bg: #f3f7fc;
-$pcrt-primary: #111;
+$pcrt-primary: #2A2B33;
 // Sidebar
 $navbar-open: 230px;
 $navbar-close: 100px;
-$pcrt-sidebar-bg: #2a2b33;
-$pcrt-sidebar-text: #a8a8a8;
-$pcrt-sidebar-text-active: #fff;
+$pcrt-sidebar-bg: #004583;
+$pcrt-sidebar-text: #fff;
+$pcrt-accent: #F90A48;
+$pcrt-sidebar-text-active: $pcrt-accent;
+
 // Header
 $pcrt-header-bar: #DFE5EC;
 $pcrt-header: #fff;
@@ -21,11 +23,18 @@ $pcrt-header: #fff;
 $pcrt-head-shadow: 3px 3px 10px rgba(0,0,0,0.08), -3px 3px 10px rgba(0,0,0,0.2);
 $pcrt-input-height: 38px;
 $pcrt-input-border-width: 0;
+$pcrt-input-border-color: #e7edf4;
 
 $pcrt-font-size: 0.8rem;
 
+$pcrt-ph-color: #828282;
+
 
 //------ BOOTSTRAP
+$theme-colors: (
+  "pcrt-pink": $pcrt-sidebar-text-active
+);
+
 $primary: $pcrt-primary;
 $font-family-sans-serif: 'Roboto', sans-serif;
 $body-color: $pcrt-primary;
@@ -39,7 +48,7 @@ $btn-focus-box-shadow: none !important;
 $btn-active-box-shadow: none !important;
 $input-focus-box-shadow: none !important;
 $input-border-width: $pcrt-input-border-width;
-//$input-border-color: red;
+$input-border-color: $pcrt-input-border-color;
 //$input-line-height: 38px;
 $input-height: $pcrt-input-height;
 
