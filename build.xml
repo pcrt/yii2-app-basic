@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<project name="Yii2 - Auto Deploy script" default="ping">
+
+  <!-- ============================================  -->
+  <!-- (DEFAULT)  Target: ping                     -->
+  <!-- ============================================  -->
+  
+  <property name="yii2.workingdir" value="./" />
+  <!-- Set project repo url -->
+  <property name="yii2.repo" value="https://git.pcrt.it/PCRT/xxxx.git" />
+  <!-- Get the full directory path -->
+  <resolvepath propertyName="yii2.workingdir.resolved" file="${yii2.workingdir}" />
+    
+  <target name="ping" description="Task for testing porpose only!"> <echo msg="PONG!" /> </target>  
+  
+  <target name="generate-assets" description="Generate all assets">
+    <!-- Run npm build assets -->
+    <exec command="npm run build" dir="${yii2.workingdir.resolved}" logoutput="true" />
+    
+  </target>
+  
+  <target name="composer-install" description="Install composer dependency">
+    <!-- Run npm build assets -->
+    <exec command="php composer.phar install" dir="${yii2.workingdir.resolved}" logoutput="true" />
+    
+  </target>
+  
+  <target name="composer-update" description="Update composer dependency">
+    <!-- Run npm build assets -->
+    <exec command="php composer.phar update" dir="${yii2.workingdir.resolved}" logoutput="true" />
+    
+  </target>
+  
+  <target name="execute-migration" description="Execute yii2 migration">
+    <!-- Run user RBAC migration -->
+    <exec command="php yii migrate php yii migrate --migrationPath=@yii/rbac/migrations --interactive=0" dir="${yii2.workingdir.resolved}" logoutput="true" />
+    <!-- Run app migration -->
+    <exec command="php yii migrate --interactive=0" dir="${yii2.workingdir.resolved}" logoutput="true" />
+    
+  </target>
+  
+  <target name="init-rbac" description="Initialize RBAC module">
+    <!-- Initialize Rbac role -->
+    <exec command="php yii rbac/init" dir="${yii2.workingdir.resolved}" logoutput="true" />
+  </target>
+  
+  <target name="add-permission" description="Add permission to role">
+    <!-- Initialize Rbac role -->
+    <exec command="php yii rbac/add-permissions" dir="${yii2.workingdir.resolved}" logoutput="true" />
+  </target>
+    
+  <target name="init-from-staging" description="Deploys a copy of Project from Staging repo">
+
+    <exec command="git clone ${yii2.repo} --single-branch -b staging" dir="${yii2.workingdir.resolved}" logoutput="true" />
+    <phingcall target="composer-install"></phingcall>
+    <phingcall target="execute-migration"></phingcall>
+    <phingcall target="init-rbac"></phingcall>
+    <phingcall target="add-permission"></phingcall>
+    <phingcall target="generate-assets"></phingcall>
+  
+  </target>
+  
+  <target name="init-from-master" description="Deploys a copy of Project from Staging repo">
+
+    <exec command="git clone ${yii2.repo} --single-branch -b master" dir="${yii2.workingdir.resolved}" logoutput="true" />
+    <phingcall target="composer-install"></phingcall>
+    <phingcall target="execute-migration"></phingcall>
+    <phingcall target="init-rbac"></phingcall>
+    <phingcall target="add-permission"></phingcall>  
+    <phingcall target="generate-assets"></phingcall>
+    
+  </target>
+
+  <target name="update-from-staging" description="Deploys a copy of Project from Staging repo">
+
+    <exec command="git pull origin staging" dir="${yii2.workingdir.resolved}" logoutput="true" />
+    <phingcall target="composer-update"></phingcall>
+    <phingcall target="execute-migration"></phingcall>
+    <phingcall target="add-permission"></phingcall>
+    <phingcall target="generate-assets"></phingcall>
+    
+  </target>
+  
+  <target name="update-from-master" description="Deploys a copy of Project from Master repo">
+
+    <exec command="git pull origin master" dir="${yii2.workingdir.resolved}" logoutput="true" />
+    <phingcall target="composer-update"></phingcall>
+    <phingcall target="execute-migration"></phingcall>
+    <phingcall target="add-permission"></phingcall>
+    <phingcall target="generate-assets"></phingcall>
+    
+  </target>
+
+</project>
