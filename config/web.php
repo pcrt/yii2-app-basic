@@ -43,6 +43,27 @@ $config = [
             ],
         ],
         'db' => $db,
+        'i18n' => [
+            'translations' => [
+                'app*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    //'basePath' => '@app/messages',
+                    'fileMap' => [
+                        'app' => 'main.php'
+                    ],
+                ],
+            ],
+        ],
+        'assetManager' => [
+            'bundles' => [
+                'yii\web\JqueryAsset' => [
+                    'sourcePath' => null,   // do not publish the bundle
+                    'js' => [
+                        'dist/main.min.js',
+                    ]
+                ],
+            ],
+        ],
         // Uncomment to enable Multilanguage support
         /*'i18n' => [
             'translations' => [
