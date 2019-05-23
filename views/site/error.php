@@ -9,12 +9,14 @@ use yii\helpers\Html;
 
 $this->title = $name;
 ?>
-<div class="site-error">
+<div class="site-error text-center">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <div class="text-center text-danger"><i class="fas fa-exclamation-circle fa-10x"></i></div>
 
-    <div class="alert alert-danger">
-        <?= nl2br(Html::encode($message)) ?>
+    <div class="mx-auto mt-4" style="max-width:450px;">
+        <div class="alert alert-danger text-center">
+            <?= nl2br(Html::encode($message)) ?>
+        </div>
     </div>
 
     <p>

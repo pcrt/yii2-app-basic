@@ -42,6 +42,15 @@ $config = [
                 ],
             ],
         ],
+        'roleManager' => [
+          'class' => 'app\components\RoleManager'
+        ],
+        'authManager' => [
+          'class' => '\yii\rbac\DbManager'
+        ],
+        'user' => [
+            'identityClass' => 'app\models\User',
+        ],
         'db' => $db,
         'i18n' => [
             'translations' => [

@@ -19,6 +19,7 @@
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
         "yiithings/yii2-dotenv": "*",
+        "yii2mod/yii2-enum": "*",
         "pcrt/yii2-gii": "dev-master",
         "pcrt/yii2-select2": "dev-master",
         "pcrt/yii2-datepicker": "dev-master",
