@@ -17,7 +17,7 @@ class RbacController extends Controller
 {
     public function actionInit()
     {
-        $auth = \Yii::$app->authManager;
+        /*$auth = \Yii::$app->authManager;
 
         //creazione ruoli
 
@@ -92,13 +92,13 @@ class RbacController extends Controller
             echo "password: $pass\n";
             echo "username: $user->username\n";
             echo "############################################################\n";
-        }
+        }*/
     }
 
     public function actionAddPermissions()
     {
 
-    //Create all permission and assign it to role
+        /*//Create all permission and assign it to role
 
         $auth = \Yii::$app->authManager;
 
@@ -214,7 +214,7 @@ class RbacController extends Controller
         $writeAllRfq = $auth->createPermission('writeAllRfq');
         $writeAllRfq->description = 'Can write all rfq';
         $auth->add($writeAllRfq);
-    
+
         //readAllRfqSupplier
 
         $readAllRfqSupplier = $auth->createPermission('readAllRfqSupplier');
@@ -228,11 +228,11 @@ class RbacController extends Controller
         $auth->add($writeAllRfqSupplier);
 
         // Dashboard Permission
-        
+
         $showAdminDashboard = $auth->createPermission('showAdminDashboard');
         $showAdminDashboard->description = 'Can show admin dashboard';
         $auth->add($showAdminDashboard);
-        
+
         $showTechnicianDashboard = $auth->createPermission('showTechnicianDashboard');
         $showTechnicianDashboard->description = 'Can show technician dashboard';
         $auth->add($showTechnicianDashboard);
@@ -240,11 +240,11 @@ class RbacController extends Controller
         $showSupplierDashboard = $auth->createPermission('showSupplierDashboard');
         $showSupplierDashboard->description = 'Can show supplier dashboard';
         $auth->add($showSupplierDashboard);
-        
+
         $showBuyerDashboard = $auth->createPermission('showBuyerDashboard');
         $showBuyerDashboard->description = 'Can show buyer dashboard';
         $auth->add($showBuyerDashboard);
-        
+
         $showSupervisorDashboard = $auth->createPermission('showSupervisorDashboard');
         $showSupervisorDashboard->description = 'Can show supervisor dashboard';
         $auth->add($showSupervisorDashboard);
@@ -291,7 +291,7 @@ class RbacController extends Controller
         $auth->addChild($admin, $readAllRfq);
         $auth->addChild($admin, $writeAllRfq);
         $auth->addChild($admin, $showAdminDashboard);
-    
+
         $auth->addChild($supplier, $readAllRfqSupplier);
         $auth->addChild($supplier, $writeAllRfqSupplier);
         $auth->addChild($supplier, $showSupplierDashboard);
@@ -309,6 +309,6 @@ class RbacController extends Controller
         $auth->addChild($supervisor, $writeAllRfp);
         $auth->addChild($supervisor, $readAllRfq);
         $auth->addChild($supervisor, $writeAllRfq);
-        $auth->addChild($supervisor, $showSupervisorDashboard);
+        $auth->addChild($supervisor, $showSupervisorDashboard);*/
     }
 }
