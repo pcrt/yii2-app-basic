@@ -1,11 +1,14 @@
 <?php
 
-return array_merge(
+$traslation = array_merge(
     include('mail.php'),
     [
-    'Description' => 'Descrizione',
-    'Page' => 'Pagina',
-    'Prev' => 'Prec.',
-    'Next' => 'Succ.'
+      'Test' => 'Test'
     ]
 );
+
+if (file_exists(getcwd().'/override.php')) {
+    return array_merge($traslation, include('override.php'));
+}
+
+return $traslation;
